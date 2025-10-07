@@ -1,0 +1,15 @@
+C:\Users\MARIA EDUARDA\Downloads\C#\atendimentos\src\Atendimentos.Application\bin\Debug\net9.0\Atendimentos.Application.deps.json
+C:\Users\MARIA EDUARDA\Downloads\C#\atendimentos\src\Atendimentos.Application\bin\Debug\net9.0\Atendimentos.Application.dll
+C:\Users\MARIA EDUARDA\Downloads\C#\atendimentos\src\Atendimentos.Application\bin\Debug\net9.0\Atendimentos.Application.pdb
+C:\Users\MARIA EDUARDA\Downloads\C#\atendimentos\src\Atendimentos.Application\bin\Debug\net9.0\Atendimentos.Domain.dll
+C:\Users\MARIA EDUARDA\Downloads\C#\atendimentos\src\Atendimentos.Application\bin\Debug\net9.0\Atendimentos.Domain.pdb
+C:\Users\MARIA EDUARDA\Downloads\C#\atendimentos\src\Atendimentos.Application\obj\Debug\net9.0\Atendimentos.Application.csproj.AssemblyReference.cache
+C:\Users\MARIA EDUARDA\Downloads\C#\atendimentos\src\Atendimentos.Application\obj\Debug\net9.0\Atendimentos.Application.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\MARIA EDUARDA\Downloads\C#\atendimentos\src\Atendimentos.Application\obj\Debug\net9.0\Atendimentos.Application.AssemblyInfoInputs.cache
+C:\Users\MARIA EDUARDA\Downloads\C#\atendimentos\src\Atendimentos.Application\obj\Debug\net9.0\Atendimentos.Application.AssemblyInfo.cs
+C:\Users\MARIA EDUARDA\Downloads\C#\atendimentos\src\Atendimentos.Application\obj\Debug\net9.0\Atendimentos.Application.csproj.CoreCompileInputs.cache
+C:\Users\MARIA EDUARDA\Downloads\C#\atendimentos\src\Atendimentos.Application\obj\Debug\net9.0\Atendime.5609679D.Up2Date
+C:\Users\MARIA EDUARDA\Downloads\C#\atendimentos\src\Atendimentos.Application\obj\Debug\net9.0\Atendimentos.Application.dll
+C:\Users\MARIA EDUARDA\Downloads\C#\atendimentos\src\Atendimentos.Application\obj\Debug\net9.0\refint\Atendimentos.Application.dll
+C:\Users\MARIA EDUARDA\Downloads\C#\atendimentos\src\Atendimentos.Application\obj\Debug\net9.0\Atendimentos.Application.pdb
+C:\Users\MARIA EDUARDA\Downloads\C#\atendimentos\src\Atendimentos.Application\obj\Debug\net9.0\ref\Atendimentos.Application.dll
