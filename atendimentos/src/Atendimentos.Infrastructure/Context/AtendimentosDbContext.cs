@@ -10,70 +10,108 @@ namespace Atendimentos.Infrastructure.Context
         {
         }
 
-        // 🧩 Tabelas do sistema
+        // ==============================
+        // 🧩 ENTIDADES DO DOMÍNIO
+        // ==============================
         public DbSet<Mesa> Mesas { get; set; }
         public DbSet<Garcom> Garcons { get; set; }
+        public DbSet<Comanda> Comandas { get; set; }
 
+        // ==============================
+        // ⚙️ CONFIGURAÇÕES DO MODELO
+        // ==============================
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
             base.OnModelCreating(modelBuilder);
 
-            // =====================
-            // CONFIGURAÇÃO DE MESA
-            // =====================
+            // === MESA ===
             modelBuilder.Entity<Mesa>(entity =>
             {
                 entity.ToTable("MESAS");
+                entity.HasKey(e => e.Id);
 
-                entity.HasKey(m => m.Id);
+                entity.Property(e => e.Numero)
+                      .IsRequired();
 
-                entity.Property(m => m.Numero)
-                    .IsRequired();
+                entity.HasIndex(e => e.Numero)
+                      .IsUnique();
 
-                entity.HasIndex(m => m.Numero)
-                    .IsUnique();
+                entity.Property(e => e.Status)
+                      .IsRequired();
 
-                entity.Property(m => m.Status)
-                    .IsRequired();
+                entity.Property(e => e.QrCode)
+                      .HasMaxLength(256);
 
-                entity.Property(m => m.CreatedAt)
-                    .IsRequired();
+                entity.Property(e => e.Localizacao)
+                      .HasMaxLength(80);
 
-                entity.Property(m => m.UpdatedAt)
-                    .IsRequired();
+                entity.Property(e => e.CreatedAt)
+                      .HasColumnType("TIMESTAMP")
+                      .IsRequired();
 
-                entity.Property(m => m.Localizacao)
-                    .HasMaxLength(80);
+                entity.Property(e => e.UpdatedAt)
+                      .HasColumnType("TIMESTAMP")
+                      .IsRequired();
 
-                entity.Property(m => m.QrCode)
-                    .HasMaxLength(256);
+                entity.Property(e => e.RowVersion)
+                      .IsRowVersion()
+                      .IsRequired();
             });
 
-            // =======================
-            // CONFIGURAÇÃO DE GARÇOM
-            // =======================
+            // === GARÇOM ===
             modelBuilder.Entity<Garcom>(entity =>
             {
                 entity.ToTable("GARCONS");
+                entity.HasKey(e => e.Id);
 
-                entity.HasKey(g => g.Id);
+                entity.Property(e => e.Nome)
+                      .HasMaxLength(100)
+                      .IsRequired();
 
-                entity.Property(g => g.Nome)
-                    .IsRequired()
-                    .HasMaxLength(100);
+                entity.Property(e => e.Matricula)
+                      .HasMaxLength(20)
+                      .IsRequired();
 
-                entity.Property(g => g.Matricula)
-                    .IsRequired()
-                    .HasMaxLength(20);
+                entity.Property(e => e.Telefone)
+                      .HasMaxLength(20);
 
-                entity.Property(g => g.Telefone)
-                    .HasMaxLength(20);
+                entity.Property(e => e.DataContratacao)
+                      .HasColumnType("TIMESTAMP")
+                      .IsRequired();
 
-                entity.Property(g => g.DataContratacao)
-                    .IsRequired();
+                entity.Property(e => e.Ativo)
+                      .IsRequired();
+            });
 
-                entity.Property(g => g.Ativo)
-                    .IsRequired();
+            // === COMANDA ===
+            modelBuilder.Entity<Comanda>(entity =>
+            {
+                entity.ToTable("COMANDAS");
+                entity.HasKey(e => e.Id);
+
+                entity.Property(e => e.Status)
+                      .IsRequired();
+
+                entity.Property(e => e.ValorTotal)
+                      .HasPrecision(10, 2);
+
+                entity.Property(e => e.DataHoraAbertura)
+                      .HasColumnType("TIMESTAMP")
+                      .IsRequired();
+
+                entity.Property(e => e.DataHoraFechamento)
+                      .HasColumnType("TIMESTAMP");
+
+                // Relacionamentos
+                entity.HasOne<Mesa>()
+                      .WithMany()
+                      .HasForeignKey(e => e.MesaId)
+                      .OnDelete(DeleteBehavior.Restrict);
+
+                entity.HasOne<Garcom>()
+                      .WithMany()
+                      .HasForeignKey(e => e.GarcomId)
+                      .OnDelete(DeleteBehavior.Restrict);
             });
         }
     }

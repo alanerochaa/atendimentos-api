@@ -1,31 +1,47 @@
-using Atendimentos.Application.Services;
-using Atendimentos.Domain.Repositories;
-using Atendimentos.Infrastructure.Context;
-using Atendimentos.Infrastructure.Repositories;
 using Microsoft.EntityFrameworkCore;
+using Atendimentos.Infrastructure.Context; // DbContext
 
 var builder = WebApplication.CreateBuilder(args);
 
 // ==============================
-// 🔧 CONFIGURAÇÃO DO BANCO ORACLE
+// 🔧 Banco Oracle (connection em appsettings.json -> "DefaultConnection")
 // ==============================
 builder.Services.AddDbContext<AtendimentosDbContext>(options =>
     options.UseOracle(builder.Configuration.GetConnectionString("DefaultConnection")));
 
 // ========================================
-// 🧩 INJEÇÃO DE DEPENDÊNCIAS (Repositories e Services)
+// 🧩 DI: Repositories + Services (nomes totalmente qualificados)
 // ========================================
 
 // MESA
-builder.Services.AddScoped<IMesaRepository, MesaRepository>();
-builder.Services.AddScoped<IMesaService, MesaService>();
+builder.Services.AddScoped<
+    Atendimentos.Domain.Repositories.IMesaRepository,
+    Atendimentos.Infrastructure.Repositories.MesaRepository>();
+
+builder.Services.AddScoped<
+    Atendimentos.Application.Services.IMesaService,
+    Atendimentos.Application.Services.MesaService>();
 
 // GARÇOM
-builder.Services.AddScoped<IGarcomRepository, GarcomRepository>();
-builder.Services.AddScoped<IGarcomService, GarcomService>();
+builder.Services.AddScoped<
+    Atendimentos.Domain.Repositories.IGarcomRepository,
+    Atendimentos.Infrastructure.Repositories.GarcomRepository>();
+
+builder.Services.AddScoped<
+    Atendimentos.Application.Services.IGarcomService,
+    Atendimentos.Application.Services.GarcomService>();
+
+// COMANDA
+builder.Services.AddScoped<
+    Atendimentos.Domain.Repositories.IComandaRepository,
+    Atendimentos.Infrastructure.Repositories.ComandaRepository>();
+
+builder.Services.AddScoped<
+    Atendimentos.Application.Services.IComandaService,
+    Atendimentos.Application.Services.ComandaService>();
 
 // ========================================
-// 🧱 CONFIGURAÇÃO PADRÃO DO ASP.NET
+// 🧱 ASP.NET
 // ========================================
 builder.Services.AddControllers();
 builder.Services.AddEndpointsApiExplorer();
@@ -34,7 +50,7 @@ builder.Services.AddSwaggerGen();
 var app = builder.Build();
 
 // ========================================
-// 🚀 CONFIGURAÇÃO DO PIPELINE
+// 🚀 Pipeline
 // ========================================
 if (app.Environment.IsDevelopment())
 {
