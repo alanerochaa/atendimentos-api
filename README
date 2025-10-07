@@ -1,0 +1,264 @@
+# 🍽️ Sistema de Atendimentos de Restaurante
+
+Este projeto é uma **API RESTful desenvolvida em .NET 8** para o gerenciamento completo de atendimentos em um restaurante, incluindo controle de **mesas, garçons, comandas e clientes**.  
+O objetivo é oferecer uma base sólida e escalável para sistemas de gestão de atendimento, integrando banco de dados Oracle e boas práticas de arquitetura limpa.
+
+---
+
+## 🧭 Índice
+
+1. [🧩 Visão Geral](#-visão-geral)
+2. [⚙️ Tecnologias Utilizadas](#️-tecnologias-utilizadas)
+3. [🏗️ Estrutura do Projeto](#️-estrutura-do-projeto)
+4. [🗃️ Entidades Principais](#️-entidades-principais)
+5. [🚀 Configuração e Execução](#-configuração-e-execução)
+6. [🧱 Migrations e Banco de Dados](#-migrations-e-banco-de-dados)
+7. [🌐 Endpoints Principais (Swagger)](#-endpoints-principais-swagger)
+8. [💾 Exemplo de Uso (Swagger)](#-exemplo-de-uso-swagger)
+9. [🧠 Regras de Negócio Implementadas](#-regras-de-negócio-implementadas)
+10. [📈 Próximos Passos](#-próximos-passos)
+11. [👩‍💻 Autoria](#-autoria)
+
+---
+
+## 🧩 Visão Geral
+
+O sistema foi construído com **arquitetura em camadas** seguindo o padrão *Domain-Driven Design (DDD)*, com separação clara de responsabilidades:
+
+- **Domain:** contém as entidades e regras de negócio puras.  
+- **Application:** responsável pelos serviços e lógica de aplicação.  
+- **Infrastructure:** integra o banco de dados e implementa os repositórios.  
+- **API:** expõe os endpoints REST via ASP.NET Core.
+
+A API permite gerenciar todo o fluxo do atendimento de um restaurante, desde o cadastro de mesas até a abertura e fechamento de comandas.
+
+---
+
+## ⚙️ Tecnologias Utilizadas
+
+| Categoria | Tecnologia |
+|------------|-------------|
+| Linguagem | **C# (.NET 8)** |
+| Framework Web | **ASP.NET Core Web API** |
+| ORM | **Entity Framework Core (Oracle Provider)** |
+| Banco de Dados | **Oracle Database (FIAP Cloud)** |
+| Documentação | **Swagger / Swashbuckle** |
+| Injeção de Dependência | **Built-in Dependency Injection** |
+| Versionamento | **Git + GitHub** |
+| Testes Unitários | **xUnit** (base incluída no projeto) |
+
+---
+
+## 🏗️ Estrutura do Projeto
+
+```bash
+atendimentos/
+│
+├── src/
+│   ├── Atendimentos.Api/                            # 🎯 Camada de apresentação (endpoints / controllers)
+│   │   ├── Controllers/
+│   │   │   ├── MesasController.cs
+│   │   │   ├── GarconsController.cs
+│   │   │   ├── ComandasController.cs
+│   │   │   └── ClientesController.cs
+│   │   ├── Program.cs                               # Configuração de serviços e DI
+│   │   └── appsettings.json                         # Configuração de banco e ambiente
+│   │
+│   ├── Atendimentos.Application/                    # ⚙️ Camada de aplicação (serviços e DTOs)
+│   │   └── Services/
+│   │       ├── MesaService.cs
+│   │       ├── GarcomService.cs
+│   │       ├── ComandaService.cs
+│   │       └── ClienteService.cs
+│   │
+│   ├── Atendimentos.Domain/                         # 🧩 Camada de domínio (entidades e interfaces)
+│   │   ├── Entities/
+│   │   │   ├── Mesa.cs
+│   │   │   ├── Garcom.cs
+│   │   │   ├── Comanda.cs
+│   │   │   └── Cliente.cs
+│   │   └── Repositories/
+│   │       ├── IMesaRepository.cs
+│   │       ├── IGarcomRepository.cs
+│   │       ├── IComandaRepository.cs
+│   │       └── IClienteRepository.cs
+│   │
+│   ├── Atendimentos.Infrastructure/                 # 🗄️ Camada de infraestrutura (banco, repositórios)
+│   │   ├── Context/
+│   │   │   └── AtendimentosDbContext.cs
+│   │   ├── Repositories/
+│   │   │   ├── MesaRepository.cs
+│   │   │   ├── GarcomRepository.cs
+│   │   │   ├── ComandaRepository.cs
+│   │   │   └── ClienteRepository.cs
+│   │   └── Migrations/                              # Migrações do Entity Framework
+│   │       ├── 2025xxxxxx_InitialCreate.cs
+│   │       ├── AddGarcom.cs
+│   │       ├── AddComandaTable.cs
+│   │       └── AddClienteTable.cs
+│   │
+│   └── Atendimentos.Tests/                          # 🧪 Estrutura para testes unitários
+│       └── (futuros testes automatizados)
+│
+└── README.md                                        # 📘 Documentação do projeto
+
+---
+
+## 🗃️ Entidades Principais
+
+### 🪑 Mesa
+- `Numero`
+- `Capacidade`
+- `Status` (Disponível, Ocupada, Reservada)
+- `Localizacao`
+- `QrCode`
+
+### 🧑‍🍳 Garçom
+- `Nome`
+- `Matricula`
+- `Telefone`
+- `DataContratacao`
+- `Ativo`
+
+### 🧾 Comanda
+- `MesaId`
+- `GarcomId`
+- `ClienteId`
+- `Status`
+- `DataHoraAbertura`
+- `DataHoraFechamento`
+- `ValorTotal`
+
+### 👤 Cliente
+- `Nome`
+- `CPF`
+- `Telefone`
+- `DataCadastro`
+
+---
+
+## 🚀 Configuração e Execução
+
+### 1️⃣ Restaurar dependências
+```bash
+dotnet restore
+
+2️⃣ Compilar o projeto
+bash
+Copiar código
+dotnet build
+
+3️⃣ Rodar as migrations
+bash
+Copiar código
+dotnet ef database update --project src/Atendimentos.Infrastructure --startup-project src/Atendimentos.Api
+
+4️⃣ Executar a API
+bash
+Copiar código
+dotnet run --project src/Atendimentos.Api
+Acesse em:
+👉 http://localhost:5070/swagger
+
+
+🧱 Migrations e Banco de Dados
+A aplicação utiliza Entity Framework Core com Oracle.
+Cada entidade possui uma migration associada.
+
+Comandos úteis:
+bash
+Copiar código
+
+# Criar uma nova migration
+dotnet ef migrations add NomeDaMigration --project src/Atendimentos.Infrastructure --startup-project src/Atendimentos.Api
+
+# Atualizar o banco
+dotnet ef database update --project src/Atendimentos.Infrastructure --startup-project src/Atendimentos.Api
+
+# Apagar o banco (caso queira recriar)
+dotnet ef database drop --project src/Atendimentos.Infrastructure --startup-project src/Atendimentos.Api
+🌐 Endpoints Principais (Swagger)
+
+🪑 Mesas
+Método	Endpoint	Descrição
+GET	/api/mesas	Lista todas as mesas
+POST	/api/mesas	Cria uma nova mesa
+PUT	/api/mesas/{id}	Atualiza dados da mesa
+PUT	/api/mesas/{id}/status	Atualiza status da mesa
+DELETE	/api/mesas/{id}	Remove uma mesa
+
+🧑‍🍳 Garçons
+Método	Endpoint	Descrição
+GET	/api/garcons	Lista todos os garçons
+POST	/api/garcons	Cadastra um novo garçom
+
+🧾 Comandas
+Método	Endpoint	Descrição
+POST	/api/comandas	Abre uma nova comanda
+GET	/api/comandas	Lista todas as comandas
+PUT	/api/comandas/{id}/fechar	Fecha uma comanda
+DELETE	/api/comandas/{id}	Remove uma comanda
+
+👤 Clientes
+Método	Endpoint	Descrição
+POST	/api/clientes	Cria um novo cliente
+GET	/api/clientes	Lista todos os clientes
+GET	/api/clientes/{id}	Busca um cliente pelo ID
+DELETE	/api/clientes/{id}	Remove um cliente
+
+💾 Exemplo de Uso (Swagger)
+Criar Cliente
+json
+Copiar código
+POST /api/clientes
+{
+  "nome": "Maria Eduarda Araujo Penas",
+  "cpf": "12345678900",
+  "telefone": "11999998888"
+}
+Criar Mesa
+json
+Copiar código
+POST /api/mesas
+{
+  "numero": 3,
+  "capacidade": 4,
+  "localizacao": "Varanda"
+}
+Criar Garçom
+json
+Copiar código
+POST /api/garcons
+{
+  "nome": "Carlos Silva",
+  "matricula": "G001",
+  "telefone": "11911112222"
+}
+Abrir Comanda
+bash
+Copiar código
+POST /api/comandas?mesaId={mesa-guid}&garcomId={garcom-guid}
+
+🧠 Regras de Negócio Implementadas
+Cada mesa possui status controlado (Disponível, Ocupada, Reservada).
+
+Uma comanda pode ser aberta apenas se a mesa estiver disponível.
+
+Garçons ativos podem abrir comandas.
+
+Clientes podem ser vinculados a comandas.
+
+Controle de timestamps de criação e atualização automáticos.
+
+Todas as relações possuem integridade referencial (FKs com restrições Oracle).
+
+
+👩‍💻 Autoria
+Desenvolvido por:
+💻 Maria Eduarda Araujo Penas
+📧 eduarda.mpenas.com
+🐙 GitHub: https://github.com/DudaAraujo14
+
+Orientado para:
+📚 Projeto acadêmico FIAP — Engenharia de Software
+🗓️ Outubro / 2025
