@@ -13,3 +13,4 @@ C:\Users\MARIA EDUARDA\Downloads\C#\atendimentos\src\Atendimentos.Application\ob
 C:\Users\MARIA EDUARDA\Downloads\C#\atendimentos\src\Atendimentos.Application\obj\Debug\net9.0\refint\Atendimentos.Application.dll
 C:\Users\MARIA EDUARDA\Downloads\C#\atendimentos\src\Atendimentos.Application\obj\Debug\net9.0\Atendimentos.Application.pdb
 C:\Users\MARIA EDUARDA\Downloads\C#\atendimentos\src\Atendimentos.Application\obj\Debug\net9.0\ref\Atendimentos.Application.dll
+C:\Users\MARIA EDUARDA\Downloads\C#\atendimentos\src\Atendimentos.Application\obj\Debug\net9.0\Atendimentos.Application.sourcelink.json

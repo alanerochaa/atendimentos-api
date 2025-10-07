@@ -9,3 +9,4 @@ C:\Users\MARIA EDUARDA\Downloads\C#\atendimentos\src\Atendimentos.Domain\obj\Deb
 C:\Users\MARIA EDUARDA\Downloads\C#\atendimentos\src\Atendimentos.Domain\obj\Debug\net9.0\refint\Atendimentos.Domain.dll
 C:\Users\MARIA EDUARDA\Downloads\C#\atendimentos\src\Atendimentos.Domain\obj\Debug\net9.0\Atendimentos.Domain.pdb
 C:\Users\MARIA EDUARDA\Downloads\C#\atendimentos\src\Atendimentos.Domain\obj\Debug\net9.0\ref\Atendimentos.Domain.dll
+C:\Users\MARIA EDUARDA\Downloads\C#\atendimentos\src\Atendimentos.Domain\obj\Debug\net9.0\Atendimentos.Domain.sourcelink.json

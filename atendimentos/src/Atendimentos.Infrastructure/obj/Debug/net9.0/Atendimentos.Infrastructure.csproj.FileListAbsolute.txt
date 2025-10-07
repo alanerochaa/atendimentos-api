@@ -15,3 +15,4 @@ C:\Users\MARIA EDUARDA\Downloads\C#\atendimentos\src\Atendimentos.Infrastructure
 C:\Users\MARIA EDUARDA\Downloads\C#\atendimentos\src\Atendimentos.Infrastructure\obj\Debug\net9.0\Atendimentos.Infrastructure.pdb
 C:\Users\MARIA EDUARDA\Downloads\C#\atendimentos\src\Atendimentos.Infrastructure\obj\Debug\net9.0\Atendimentos.Infrastructure.genruntimeconfig.cache
 C:\Users\MARIA EDUARDA\Downloads\C#\atendimentos\src\Atendimentos.Infrastructure\obj\Debug\net9.0\ref\Atendimentos.Infrastructure.dll
+C:\Users\MARIA EDUARDA\Downloads\C#\atendimentos\src\Atendimentos.Infrastructure\obj\Debug\net9.0\Atendimentos.Infrastructure.sourcelink.json

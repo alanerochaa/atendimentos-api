@@ -1,0 +1,12 @@
+C:\Users\MARIA EDUARDA\Downloads\C#\atendimentos\src\Atendimentos.Domain\bin\Debug\net8.0\Atendimentos.Domain.deps.json
+C:\Users\MARIA EDUARDA\Downloads\C#\atendimentos\src\Atendimentos.Domain\bin\Debug\net8.0\Atendimentos.Domain.dll
+C:\Users\MARIA EDUARDA\Downloads\C#\atendimentos\src\Atendimentos.Domain\bin\Debug\net8.0\Atendimentos.Domain.pdb
+C:\Users\MARIA EDUARDA\Downloads\C#\atendimentos\src\Atendimentos.Domain\obj\Debug\net8.0\Atendimentos.Domain.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\MARIA EDUARDA\Downloads\C#\atendimentos\src\Atendimentos.Domain\obj\Debug\net8.0\Atendimentos.Domain.AssemblyInfoInputs.cache
+C:\Users\MARIA EDUARDA\Downloads\C#\atendimentos\src\Atendimentos.Domain\obj\Debug\net8.0\Atendimentos.Domain.AssemblyInfo.cs
+C:\Users\MARIA EDUARDA\Downloads\C#\atendimentos\src\Atendimentos.Domain\obj\Debug\net8.0\Atendimentos.Domain.csproj.CoreCompileInputs.cache
+C:\Users\MARIA EDUARDA\Downloads\C#\atendimentos\src\Atendimentos.Domain\obj\Debug\net8.0\Atendimentos.Domain.sourcelink.json
+C:\Users\MARIA EDUARDA\Downloads\C#\atendimentos\src\Atendimentos.Domain\obj\Debug\net8.0\Atendimentos.Domain.dll
+C:\Users\MARIA EDUARDA\Downloads\C#\atendimentos\src\Atendimentos.Domain\obj\Debug\net8.0\refint\Atendimentos.Domain.dll
+C:\Users\MARIA EDUARDA\Downloads\C#\atendimentos\src\Atendimentos.Domain\obj\Debug\net8.0\Atendimentos.Domain.pdb
+C:\Users\MARIA EDUARDA\Downloads\C#\atendimentos\src\Atendimentos.Domain\obj\Debug\net8.0\ref\Atendimentos.Domain.dll

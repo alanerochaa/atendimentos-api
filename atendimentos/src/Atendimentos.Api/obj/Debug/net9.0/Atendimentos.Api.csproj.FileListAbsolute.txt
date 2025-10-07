@@ -58,3 +58,4 @@ C:\Users\MARIA EDUARDA\Downloads\C#\atendimentos\src\Atendimentos.Api\obj\Debug\
 C:\Users\MARIA EDUARDA\Downloads\C#\atendimentos\src\Atendimentos.Api\obj\Debug\net9.0\Atendimentos.Api.pdb
 C:\Users\MARIA EDUARDA\Downloads\C#\atendimentos\src\Atendimentos.Api\obj\Debug\net9.0\Atendimentos.Api.genruntimeconfig.cache
 C:\Users\MARIA EDUARDA\Downloads\C#\atendimentos\src\Atendimentos.Api\obj\Debug\net9.0\ref\Atendimentos.Api.dll
+C:\Users\MARIA EDUARDA\Downloads\C#\atendimentos\src\Atendimentos.Api\obj\Debug\net9.0\Atendimentos.Api.sourcelink.json

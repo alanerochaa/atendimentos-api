@@ -108,3 +108,4 @@ C:\Users\MARIA EDUARDA\Downloads\C#\atendimentos\tests\Atendimentos.Tests\obj\De
 C:\Users\MARIA EDUARDA\Downloads\C#\atendimentos\tests\Atendimentos.Tests\obj\Debug\net9.0\Atendimentos.Tests.pdb
 C:\Users\MARIA EDUARDA\Downloads\C#\atendimentos\tests\Atendimentos.Tests\obj\Debug\net9.0\Atendimentos.Tests.genruntimeconfig.cache
 C:\Users\MARIA EDUARDA\Downloads\C#\atendimentos\tests\Atendimentos.Tests\obj\Debug\net9.0\ref\Atendimentos.Tests.dll
+C:\Users\MARIA EDUARDA\Downloads\C#\atendimentos\tests\Atendimentos.Tests\obj\Debug\net9.0\Atendimentos.Tests.sourcelink.json
