@@ -41,19 +41,19 @@ O projeto segue o padrão **Domain-Driven Design (DDD)** e aplica a **Clean Arch
 
 ```mermaid
 flowchart TD
-    subgraph Presentation ["API - Camada de Apresentação"]
+    subgraph API_Camada_de_Controllers
         A[Controllers]
     end
 
-    subgraph Application ["Application - Casos de Uso e Serviços"]
+    subgraph Application_Casos_de_Uso
         B[Use Cases / DTOs / Validations]
     end
 
-    subgraph Domain ["Domain - Entidades e Regras de Negócio"]
+    subgraph Domain_Entidades_e_Regras_de_Negocio
         C[Entities / Value Objects / Regras de Domínio]
     end
 
-    subgraph Infrastructure ["Infrastructure - Banco e Integrações"]
+    subgraph Infrastructure_Banco_e_Integracoes
         D[EF Core / Repositórios]
         E[(Oracle Database)]
         F[APIs Externas]
