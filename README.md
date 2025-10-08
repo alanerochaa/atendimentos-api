@@ -40,12 +40,30 @@ O **Sistema de Atendimentos de Restaurante** tem como objetivo digitalizar e aut
 O projeto segue o padrão **Domain-Driven Design (DDD)** e aplica a **Clean Architecture**, garantindo separação de responsabilidades, facilidade de manutenção e baixo acoplamento entre camadas.
 
 ```mermaid
-flowchart LR
-API[API (Controllers)] --> APP[Application (Use Cases / Services)]
-APP --> DOM[Domain (Entities / Rules)]
-APP --> INFRA[Infrastructure (EF Core / Repositories)]
-INFRA --> DB[(Oracle Database)]
-INFRA --> EXT[External APIs]
+flowchart TD
+    subgraph Presentation ["API - Camada de Apresentação"]
+        A[Controllers]
+    end
+
+    subgraph Application ["Application - Casos de Uso e Serviços"]
+        B[Use Cases / DTOs / Validations]
+    end
+
+    subgraph Domain ["Domain - Entidades e Regras de Negócio"]
+        C[Entities / Value Objects / Regras de Domínio]
+    end
+
+    subgraph Infrastructure ["Infrastructure - Banco e Integrações"]
+        D[EF Core / Repositórios]
+        E[(Oracle Database)]
+        F[APIs Externas]
+    end
+
+    A --> B
+    B --> C
+    B --> D
+    D --> E
+    D --> F
 ```
 
 ---
