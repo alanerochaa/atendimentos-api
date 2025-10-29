@@ -27,6 +27,16 @@ namespace Atendimentos.Application.Services
             return mesas.Select(MapToDto);
         }
 
+        //  buscar mesa por ID
+        public async Task<MesaDto?> ObterPorIdAsync(Guid id)
+        {
+            var mesa = await _mesaRepository.ObterPorIdAsync(id);
+            if (mesa == null)
+                return null;
+
+            return MapToDto(mesa);
+        }
+
         public async Task<MesaDto?> AtualizarMesaAsync(Guid id, MesaUpdateDto dto)
         {
             var mesa = await _mesaRepository.ObterPorIdAsync(id);
@@ -61,6 +71,7 @@ namespace Atendimentos.Application.Services
             return true;
         }
 
+        // Mapeamento para DTO
         private static MesaDto MapToDto(Mesa mesa) => new MesaDto
         {
             Id = mesa.Id,
