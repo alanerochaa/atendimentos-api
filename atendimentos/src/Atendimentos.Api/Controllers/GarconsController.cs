@@ -1,6 +1,7 @@
 using Microsoft.AspNetCore.Mvc;
 using Atendimentos.Application.Services;
 using Atendimentos.Application.DTOs;
+using Atendimentos.Api.Helpers;
 
 namespace Atendimentos.Api.Controllers
 {
@@ -15,6 +16,7 @@ namespace Atendimentos.Api.Controllers
             _garcomService = garcomService;
         }
 
+        // GET: Listar todos
         [HttpGet]
         public async Task<IActionResult> GetAll()
         {
@@ -22,14 +24,54 @@ namespace Atendimentos.Api.Controllers
             return Ok(garcons);
         }
 
+        // GET: Buscar com filtro, paginação e ordenação
+        [HttpGet("search")]
+        public async Task<IActionResult> Search(
+            [FromQuery] string? nome,
+            [FromQuery] bool? ativo,
+            [FromQuery] int page = 1,
+            [FromQuery] int pageSize = 5,
+            [FromQuery] string? sortBy = null,
+            [FromQuery] string? order = "asc")
+        {
+            var todos = await _garcomService.ObterTodosAsync();
+            var query = todos.AsQueryable();
+
+            if (!string.IsNullOrEmpty(nome))
+                query = query.Where(g => g.Nome.Contains(nome, StringComparison.OrdinalIgnoreCase));
+
+            if (ativo.HasValue)
+                query = query.Where(g => g.Ativo == ativo.Value);
+
+            query = query.OrderByDynamic(sortBy, order);
+
+            var total = query.Count();
+            var result = query.Skip((page - 1) * pageSize).Take(pageSize).ToList();
+
+            return Ok(new
+            {
+                data = result,
+                pagination = new
+                {
+                    totalItems = total,
+                    currentPage = page,
+                    totalPages = (int)Math.Ceiling(total / (double)pageSize)
+                }
+            });
+        }
+
+        // GET: Buscar por ID
         [HttpGet("{id}")]
         public async Task<IActionResult> GetById(Guid id)
         {
             var garcom = await _garcomService.ObterPorIdAsync(id);
             if (garcom == null) return NotFound();
-            return Ok(garcom);
+
+            var resource = HateoasHelper.BuildResource(this, "Garcons", garcom, id);
+            return Ok(resource);
         }
 
+        // POST: Criar
         [HttpPost]
         public async Task<IActionResult> Create(GarcomCreateUpdateDto dto)
         {
@@ -37,20 +79,20 @@ namespace Atendimentos.Api.Controllers
             return CreatedAtAction(nameof(GetById), new { id = garcom.Id }, garcom);
         }
 
+        // PUT: Atualizar
         [HttpPut("{id}")]
         public async Task<IActionResult> Update(Guid id, GarcomCreateUpdateDto dto)
         {
             var atualizado = await _garcomService.AtualizarAsync(id, dto);
-            if (atualizado == null) return NotFound();
-            return Ok(atualizado);
+            return atualizado == null ? NotFound() : Ok(atualizado);
         }
 
+        // DELETE: Remover
         [HttpDelete("{id}")]
         public async Task<IActionResult> Delete(Guid id)
         {
             var sucesso = await _garcomService.DeletarAsync(id);
-            if (!sucesso) return NotFound();
-            return NoContent();
+            return !sucesso ? NotFound() : NoContent();
         }
     }
 }
