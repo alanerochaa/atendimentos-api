@@ -409,8 +409,8 @@ driver: bridge
 
 
 2. Clone os repositórios
-   * git clone https://github.com/alanerochaa/pedix-api.git
-   * git clone https://github.com/DudaAraujo14/atendimentos-api.git
+   * git clone https://github.com/alanerochaa/pedix-api-devops
+   * git clone https://github.com/alanerochaa/atendimentos-api
 
 
 3. Execute o Docker Compose
