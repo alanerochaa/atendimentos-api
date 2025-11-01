@@ -312,17 +312,88 @@ POST /api/comandas?mesaId={mesa-guid}&garcomId={garcom-guid}
 
 ---
 
-## 👩‍💻 Autoria
+## ☁️ DevOps Tools & Cloud Computing
 
-Desenvolvido por:
+### 📦 Implantação e Infraestrutura
 
-- 💻 **Maria Eduarda Araujo Penas**
-- 📧 **eduarda.mpenas.com**
-- 🐙 **[GitHub: DudaAraujo14](https://github.com/DudaAraujo14)**
+Este projeto foi parte integrante do **Checkpoint Final da disciplina de DevOps Tools & Cloud Computing**, com foco em **provisionamento de ambiente na nuvem, conteinerização e orquestração de múltiplas APIs**.
+
+A infraestrutura foi criada em uma **máquina virtual Linux (Ubuntu 22.04 LTS)** hospedada na **Microsoft Azure**, onde foram instalados **Docker** e **Docker Compose**.
 
 ---
+
+### 🧩 Estrutura de Containers
+
+| Serviço                | Container            | Porta Interna | Porta Externa | Imagem Base                                 |
+| ---------------------- | -------------------- | ------------- | -------------- | ------------------------------------------- |
+| Banco Oracle XE        | `oracle`             | 1521          | 1521           | `gvenzl/oracle-xe:21-slim`                 |
+| API Java (Pedix)       | `pedix-api`          | 8080          | 8080           | `eclipse-temurin:21-jdk-alpine`            |
+| API .NET (Atendimentos)| `atendimentos-api`   | 8080          | 8081           | `mcr.microsoft.com/dotnet/aspnet:8.0-slim` |
+
+Todos os serviços foram orquestrados via **Docker Compose**, garantindo isolamento e comunicação entre containers por meio de uma rede bridge interna (`pedix-network`).
+
+---
+
+### ⚙️ Execução na Nuvem (VM Azure)
+
+Após clonar os repositórios (`pedix-api` e `atendimentos-api`) na VM, a stack foi executada com o comando:
+
+```bash
+sudo docker-compose up -d --build
+```
+
+Os três containers foram inicializados com sucesso e verificados via:
+```
+sudo docker ps
+```
+
+## 📸 Evidências incluídas no PDF da entrega:
+
+* Containers Up (healthy)
+
+* Logs do Oracle (DATABASE IS READY TO USE!)
+
+* Swagger das APIs acessíveis via IP público:
+
+* http://<ip-da-vm>:8080/swagger-ui/index.html
+
+* http://<ip-da-vm>:8081/swagger/index.html
+
+---
+
+🔗 Repositórios e Evidências
+
+| Item                           | Link                                                                                               |
+| ------------------------------ | -------------------------------------------------------------------------------------------------- |
+| ☕ **Pedix API (Java)**         | [https://github.com/alanerochaa/pedix-api](https://github.com/alanerochaa/pedix-api)               |
+| 🧩 **Atendimentos API (.NET)** | [https://github.com/alanerochaa/atendimentos-api](https://github.com/alanerochaa/atendimentos-api) |
+| 📹 **Vídeo da Demonstração**   | [insira aqui o link do vídeo no YouTube]                                                           |
+| 📄 **PDF de Evidências**       | Arquivo entregue na plataforma FIAP                                                                |
+
+
+---
+
+
+## 🧠 Tecnologias e Boas Práticas Utilizadas
+
+Infraestrutura como Serviço (IaaS) – provisionamento de VM no Azure
+
+Dockerfile multi-stage build – otimização de imagem
+
+Docker Compose – orquestração de múltiplos serviços
+
+Imagens slim/alpine – redução de tamanho e tempo de build
+
+Execução em background (-d) – serviços rodando em modo daemon
+
+Isolamento de usuário não root nos containers
+
+
+> O projeto foi implantado com sucesso em ambiente cloud, utilizando Docker Compose para integrar as APIs Java e .NET com o banco Oracle XE.
+> A execução foi validada por meio do Swagger, confirmando a comunicação entre os serviços e o funcionamento completo da stack.
 
 ## 📚 Orientado para
 
 - 🎓 **Projeto acadêmico FIAP — C#**
 - 🗓️ **Outubro / 2025**
+
