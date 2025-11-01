@@ -299,18 +299,7 @@ POST /api/comandas?mesaId={mesa-guid}&garcomId={garcom-guid}
 - **Clientes** podem ser vinculados a **várias comandas**.  
 - Controle de **timestamps automáticos** para auditoria.  
 - Regras de negócio validadas via **entidades de domínio e exceções customizadas**.
-
----
-
-## 👥 Integrantes do Grupo
-
-| Nome | RM | Função |
-|-------|-----|--------|
-| **Maria Eduarda Araujo Penas** | RM560944 | Desenvolvedora Backend |
-| **Alane Rocha da Sila** | RM561052 | Desenvolvedora Backend |
-| **Anna Beatriz de Araujo Bonfim** | RM559561 | Desenvolvedora Front/Infra |
-
----
+- 
 
 ## ☁️ DevOps Tools & Cloud Computing
 
@@ -373,7 +362,6 @@ sudo docker ps
 
 ---
 
-
 ## 🧠 Tecnologias e Boas Práticas Utilizadas
 
 Infraestrutura como Serviço (IaaS) – provisionamento de VM no Azure
@@ -392,8 +380,14 @@ Isolamento de usuário não root nos containers
 > O projeto foi implantado com sucesso em ambiente cloud, utilizando Docker Compose para integrar as APIs Java e .NET com o banco Oracle XE.
 > A execução foi validada por meio do Swagger, confirmando a comunicação entre os serviços e o funcionamento completo da stack.
 
-## 📚 Orientado para
+---
 
-- 🎓 **Projeto acadêmico FIAP — C#**
-- 🗓️ **Outubro / 2025**
+## 👥 Integrantes do Grupo
 
+| Nome | RM | Função |
+|-------|-----|--------|
+| **Maria Eduarda Araujo Penas** | RM560944 | Desenvolvedora Backend |
+| **Alane Rocha da Sila** | RM561052 | Desenvolvedora Backend |
+| **Anna Beatriz de Araujo Bonfim** | RM559561 | Desenvolvedora Front/Infra |
+
+---
