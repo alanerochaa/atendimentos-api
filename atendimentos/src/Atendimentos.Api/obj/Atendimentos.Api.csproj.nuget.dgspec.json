@@ -1,23 +1,23 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\MARIA EDUARDA\\Downloads\\C#\\atendimentos\\src\\Atendimentos.Api\\Atendimentos.Api.csproj": {}
+    "C:\\Users\\Alan\\Desktop\\C-\\atendimentos\\src\\Atendimentos.Api\\Atendimentos.Api.csproj": {}
   },
   "projects": {
-    "C:\\Users\\MARIA EDUARDA\\Downloads\\C#\\atendimentos\\src\\Atendimentos.Api\\Atendimentos.Api.csproj": {
+    "C:\\Users\\Alan\\Desktop\\C-\\atendimentos\\src\\Atendimentos.Api\\Atendimentos.Api.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\MARIA EDUARDA\\Downloads\\C#\\atendimentos\\src\\Atendimentos.Api\\Atendimentos.Api.csproj",
+        "projectUniqueName": "C:\\Users\\Alan\\Desktop\\C-\\atendimentos\\src\\Atendimentos.Api\\Atendimentos.Api.csproj",
         "projectName": "Atendimentos.Api",
-        "projectPath": "C:\\Users\\MARIA EDUARDA\\Downloads\\C#\\atendimentos\\src\\Atendimentos.Api\\Atendimentos.Api.csproj",
-        "packagesPath": "C:\\Users\\MARIA EDUARDA\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\MARIA EDUARDA\\Downloads\\C#\\atendimentos\\src\\Atendimentos.Api\\obj\\",
+        "projectPath": "C:\\Users\\Alan\\Desktop\\C-\\atendimentos\\src\\Atendimentos.Api\\Atendimentos.Api.csproj",
+        "packagesPath": "C:\\Users\\Alan\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\Alan\\Desktop\\C-\\atendimentos\\src\\Atendimentos.Api\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
         ],
         "configFilePaths": [
-          "C:\\Users\\MARIA EDUARDA\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\Alan\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
@@ -26,17 +26,18 @@
         ],
         "sources": {
           "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+          "C:\\Program Files\\dotnet\\library-packs": {},
           "https://api.nuget.org/v3/index.json": {}
         },
         "frameworks": {
           "net8.0": {
             "targetAlias": "net8.0",
             "projectReferences": {
-              "C:\\Users\\MARIA EDUARDA\\Downloads\\C#\\atendimentos\\src\\Atendimentos.Application\\Atendimentos.Application.csproj": {
-                "projectPath": "C:\\Users\\MARIA EDUARDA\\Downloads\\C#\\atendimentos\\src\\Atendimentos.Application\\Atendimentos.Application.csproj"
+              "C:\\Users\\Alan\\Desktop\\C-\\atendimentos\\src\\Atendimentos.Application\\Atendimentos.Application.csproj": {
+                "projectPath": "C:\\Users\\Alan\\Desktop\\C-\\atendimentos\\src\\Atendimentos.Application\\Atendimentos.Application.csproj"
               },
-              "C:\\Users\\MARIA EDUARDA\\Downloads\\C#\\atendimentos\\src\\Atendimentos.Infrastructure\\Atendimentos.Infrastructure.csproj": {
-                "projectPath": "C:\\Users\\MARIA EDUARDA\\Downloads\\C#\\atendimentos\\src\\Atendimentos.Infrastructure\\Atendimentos.Infrastructure.csproj"
+              "C:\\Users\\Alan\\Desktop\\C-\\atendimentos\\src\\Atendimentos.Infrastructure\\Atendimentos.Infrastructure.csproj": {
+                "projectPath": "C:\\Users\\Alan\\Desktop\\C-\\atendimentos\\src\\Atendimentos.Infrastructure\\Atendimentos.Infrastructure.csproj"
               }
             }
           }
@@ -91,24 +92,24 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\9.0.305/PortableRuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\9.0.302/PortableRuntimeIdentifierGraph.json"
         }
       }
     },
-    "C:\\Users\\MARIA EDUARDA\\Downloads\\C#\\atendimentos\\src\\Atendimentos.Application\\Atendimentos.Application.csproj": {
+    "C:\\Users\\Alan\\Desktop\\C-\\atendimentos\\src\\Atendimentos.Application\\Atendimentos.Application.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\MARIA EDUARDA\\Downloads\\C#\\atendimentos\\src\\Atendimentos.Application\\Atendimentos.Application.csproj",
+        "projectUniqueName": "C:\\Users\\Alan\\Desktop\\C-\\atendimentos\\src\\Atendimentos.Application\\Atendimentos.Application.csproj",
         "projectName": "Atendimentos.Application",
-        "projectPath": "C:\\Users\\MARIA EDUARDA\\Downloads\\C#\\atendimentos\\src\\Atendimentos.Application\\Atendimentos.Application.csproj",
-        "packagesPath": "C:\\Users\\MARIA EDUARDA\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\MARIA EDUARDA\\Downloads\\C#\\atendimentos\\src\\Atendimentos.Application\\obj\\",
+        "projectPath": "C:\\Users\\Alan\\Desktop\\C-\\atendimentos\\src\\Atendimentos.Application\\Atendimentos.Application.csproj",
+        "packagesPath": "C:\\Users\\Alan\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\Alan\\Desktop\\C-\\atendimentos\\src\\Atendimentos.Application\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
         ],
         "configFilePaths": [
-          "C:\\Users\\MARIA EDUARDA\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\Alan\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
@@ -117,14 +118,15 @@
         ],
         "sources": {
           "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+          "C:\\Program Files\\dotnet\\library-packs": {},
           "https://api.nuget.org/v3/index.json": {}
         },
         "frameworks": {
           "net8.0": {
             "targetAlias": "net8.0",
             "projectReferences": {
-              "C:\\Users\\MARIA EDUARDA\\Downloads\\C#\\atendimentos\\src\\Atendimentos.Domain\\Atendimentos.Domain.csproj": {
-                "projectPath": "C:\\Users\\MARIA EDUARDA\\Downloads\\C#\\atendimentos\\src\\Atendimentos.Domain\\Atendimentos.Domain.csproj"
+              "C:\\Users\\Alan\\Desktop\\C-\\atendimentos\\src\\Atendimentos.Domain\\Atendimentos.Domain.csproj": {
+                "projectPath": "C:\\Users\\Alan\\Desktop\\C-\\atendimentos\\src\\Atendimentos.Domain\\Atendimentos.Domain.csproj"
               }
             }
           }
@@ -170,24 +172,24 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\9.0.305/PortableRuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\9.0.302/PortableRuntimeIdentifierGraph.json"
         }
       }
     },
-    "C:\\Users\\MARIA EDUARDA\\Downloads\\C#\\atendimentos\\src\\Atendimentos.Domain\\Atendimentos.Domain.csproj": {
+    "C:\\Users\\Alan\\Desktop\\C-\\atendimentos\\src\\Atendimentos.Domain\\Atendimentos.Domain.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\MARIA EDUARDA\\Downloads\\C#\\atendimentos\\src\\Atendimentos.Domain\\Atendimentos.Domain.csproj",
+        "projectUniqueName": "C:\\Users\\Alan\\Desktop\\C-\\atendimentos\\src\\Atendimentos.Domain\\Atendimentos.Domain.csproj",
         "projectName": "Atendimentos.Domain",
-        "projectPath": "C:\\Users\\MARIA EDUARDA\\Downloads\\C#\\atendimentos\\src\\Atendimentos.Domain\\Atendimentos.Domain.csproj",
-        "packagesPath": "C:\\Users\\MARIA EDUARDA\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\MARIA EDUARDA\\Downloads\\C#\\atendimentos\\src\\Atendimentos.Domain\\obj\\",
+        "projectPath": "C:\\Users\\Alan\\Desktop\\C-\\atendimentos\\src\\Atendimentos.Domain\\Atendimentos.Domain.csproj",
+        "packagesPath": "C:\\Users\\Alan\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\Alan\\Desktop\\C-\\atendimentos\\src\\Atendimentos.Domain\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
         ],
         "configFilePaths": [
-          "C:\\Users\\MARIA EDUARDA\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\Alan\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
@@ -196,6 +198,7 @@
         ],
         "sources": {
           "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+          "C:\\Program Files\\dotnet\\library-packs": {},
           "https://api.nuget.org/v3/index.json": {}
         },
         "frameworks": {
@@ -235,24 +238,24 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\9.0.305/PortableRuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\9.0.302/PortableRuntimeIdentifierGraph.json"
         }
       }
     },
-    "C:\\Users\\MARIA EDUARDA\\Downloads\\C#\\atendimentos\\src\\Atendimentos.Infrastructure\\Atendimentos.Infrastructure.csproj": {
+    "C:\\Users\\Alan\\Desktop\\C-\\atendimentos\\src\\Atendimentos.Infrastructure\\Atendimentos.Infrastructure.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\MARIA EDUARDA\\Downloads\\C#\\atendimentos\\src\\Atendimentos.Infrastructure\\Atendimentos.Infrastructure.csproj",
+        "projectUniqueName": "C:\\Users\\Alan\\Desktop\\C-\\atendimentos\\src\\Atendimentos.Infrastructure\\Atendimentos.Infrastructure.csproj",
         "projectName": "Atendimentos.Infrastructure",
-        "projectPath": "C:\\Users\\MARIA EDUARDA\\Downloads\\C#\\atendimentos\\src\\Atendimentos.Infrastructure\\Atendimentos.Infrastructure.csproj",
-        "packagesPath": "C:\\Users\\MARIA EDUARDA\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\MARIA EDUARDA\\Downloads\\C#\\atendimentos\\src\\Atendimentos.Infrastructure\\obj\\",
+        "projectPath": "C:\\Users\\Alan\\Desktop\\C-\\atendimentos\\src\\Atendimentos.Infrastructure\\Atendimentos.Infrastructure.csproj",
+        "packagesPath": "C:\\Users\\Alan\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\Alan\\Desktop\\C-\\atendimentos\\src\\Atendimentos.Infrastructure\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
         ],
         "configFilePaths": [
-          "C:\\Users\\MARIA EDUARDA\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\Alan\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
@@ -261,14 +264,15 @@
         ],
         "sources": {
           "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+          "C:\\Program Files\\dotnet\\library-packs": {},
           "https://api.nuget.org/v3/index.json": {}
         },
         "frameworks": {
           "net8.0": {
             "targetAlias": "net8.0",
             "projectReferences": {
-              "C:\\Users\\MARIA EDUARDA\\Downloads\\C#\\atendimentos\\src\\Atendimentos.Domain\\Atendimentos.Domain.csproj": {
-                "projectPath": "C:\\Users\\MARIA EDUARDA\\Downloads\\C#\\atendimentos\\src\\Atendimentos.Domain\\Atendimentos.Domain.csproj"
+              "C:\\Users\\Alan\\Desktop\\C-\\atendimentos\\src\\Atendimentos.Domain\\Atendimentos.Domain.csproj": {
+                "projectPath": "C:\\Users\\Alan\\Desktop\\C-\\atendimentos\\src\\Atendimentos.Domain\\Atendimentos.Domain.csproj"
               }
             }
           }
@@ -320,7 +324,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\9.0.305/PortableRuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\9.0.302/PortableRuntimeIdentifierGraph.json"
         }
       }
     }

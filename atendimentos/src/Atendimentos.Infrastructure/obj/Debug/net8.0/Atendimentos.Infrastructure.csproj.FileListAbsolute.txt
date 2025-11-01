@@ -16,3 +16,21 @@ C:\Users\MARIA EDUARDA\Downloads\C#\atendimentos\src\Atendimentos.Infrastructure
 C:\Users\MARIA EDUARDA\Downloads\C#\atendimentos\src\Atendimentos.Infrastructure\obj\Debug\net8.0\Atendimentos.Infrastructure.pdb
 C:\Users\MARIA EDUARDA\Downloads\C#\atendimentos\src\Atendimentos.Infrastructure\obj\Debug\net8.0\Atendimentos.Infrastructure.genruntimeconfig.cache
 C:\Users\MARIA EDUARDA\Downloads\C#\atendimentos\src\Atendimentos.Infrastructure\obj\Debug\net8.0\ref\Atendimentos.Infrastructure.dll
+C:\Users\Alan\Desktop\C-\atendimentos\src\Atendimentos.Infrastructure\bin\Debug\net8.0\Atendimentos.Infrastructure.deps.json
+C:\Users\Alan\Desktop\C-\atendimentos\src\Atendimentos.Infrastructure\bin\Debug\net8.0\Atendimentos.Infrastructure.runtimeconfig.json
+C:\Users\Alan\Desktop\C-\atendimentos\src\Atendimentos.Infrastructure\bin\Debug\net8.0\Atendimentos.Infrastructure.dll
+C:\Users\Alan\Desktop\C-\atendimentos\src\Atendimentos.Infrastructure\bin\Debug\net8.0\Atendimentos.Infrastructure.pdb
+C:\Users\Alan\Desktop\C-\atendimentos\src\Atendimentos.Infrastructure\bin\Debug\net8.0\Atendimentos.Domain.dll
+C:\Users\Alan\Desktop\C-\atendimentos\src\Atendimentos.Infrastructure\bin\Debug\net8.0\Atendimentos.Domain.pdb
+C:\Users\Alan\Desktop\C-\atendimentos\src\Atendimentos.Infrastructure\obj\Debug\net8.0\Atendimentos.Infrastructure.csproj.AssemblyReference.cache
+C:\Users\Alan\Desktop\C-\atendimentos\src\Atendimentos.Infrastructure\obj\Debug\net8.0\Atendimentos.Infrastructure.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\Alan\Desktop\C-\atendimentos\src\Atendimentos.Infrastructure\obj\Debug\net8.0\Atendimentos.Infrastructure.AssemblyInfoInputs.cache
+C:\Users\Alan\Desktop\C-\atendimentos\src\Atendimentos.Infrastructure\obj\Debug\net8.0\Atendimentos.Infrastructure.AssemblyInfo.cs
+C:\Users\Alan\Desktop\C-\atendimentos\src\Atendimentos.Infrastructure\obj\Debug\net8.0\Atendimentos.Infrastructure.csproj.CoreCompileInputs.cache
+C:\Users\Alan\Desktop\C-\atendimentos\src\Atendimentos.Infrastructure\obj\Debug\net8.0\Atendimentos.Infrastructure.sourcelink.json
+C:\Users\Alan\Desktop\C-\atendimentos\src\Atendimentos.Infrastructure\obj\Debug\net8.0\Atendime.8A9EFF9E.Up2Date
+C:\Users\Alan\Desktop\C-\atendimentos\src\Atendimentos.Infrastructure\obj\Debug\net8.0\Atendimentos.Infrastructure.dll
+C:\Users\Alan\Desktop\C-\atendimentos\src\Atendimentos.Infrastructure\obj\Debug\net8.0\refint\Atendimentos.Infrastructure.dll
+C:\Users\Alan\Desktop\C-\atendimentos\src\Atendimentos.Infrastructure\obj\Debug\net8.0\Atendimentos.Infrastructure.pdb
+C:\Users\Alan\Desktop\C-\atendimentos\src\Atendimentos.Infrastructure\obj\Debug\net8.0\Atendimentos.Infrastructure.genruntimeconfig.cache
+C:\Users\Alan\Desktop\C-\atendimentos\src\Atendimentos.Infrastructure\obj\Debug\net8.0\ref\Atendimentos.Infrastructure.dll
