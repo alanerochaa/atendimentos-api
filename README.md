@@ -303,14 +303,6 @@ POST /api/comandas?mesaId={mesa-guid}&garcomId={garcom-guid}
 
 ## ☁️ DevOps Tools & Cloud Computing
 
-### 📦 Implantação e Infraestrutura
-
-Este projeto foi parte integrante do **Checkpoint Final da disciplina de DevOps Tools & Cloud Computing**, com foco em **provisionamento de ambiente na nuvem, conteinerização e orquestração de múltiplas APIs**.
-
-A infraestrutura foi criada em uma **máquina virtual Linux (Ubuntu 22.04 LTS)** hospedada na **Microsoft Azure**, onde foram instalados **Docker** e **Docker Compose**.
-
----
-
 ## 🐳 Orquestração com Docker Compose
 
 O arquivo `docker-compose.yml` define a orquestração de três containers — **Oracle XE**, **API Pedix (Java)** e **API Atendimentos (.NET)** — conectados por uma rede Docker interna chamada **`pedix-network`**.  
@@ -341,21 +333,12 @@ Os três containers foram inicializados com sucesso e verificados via:
 sudo docker ps
 ```
 
-## 📸 Evidências incluídas no PDF da entrega:
-
-* Containers Up (healthy)
-
-* Logs do Oracle (DATABASE IS READY TO USE!)
-
-* Swagger das APIs acessíveis via IP público:
-
-* http://<ip-da-vm>:8080/swagger-ui/index.html
-
-* http://<ip-da-vm>:8081/swagger/index.html
-
 ---
 
-🔗 Repositórios e Evidências
+🧩 Arquivo docker-compose.yml
+
+O arquivo docker-compose.yml define e orquestra todos os serviços.
+Basta copiá-lo para a raiz do projeto e executá-lo para subir o ambiente completo.
 
 | Item                           | Link                                                                                               |
 | ------------------------------ | -------------------------------------------------------------------------------------------------- |
@@ -365,34 +348,108 @@ sudo docker ps
 | 📄 **PDF de Evidências**       | Arquivo entregue na plataforma FIAP                                                                |
 
 
----
+```
+version: '3.9'
 
-## 🧠 Tecnologias e Boas Práticas Utilizadas
+services:
+oracle:
+image: gvenzl/oracle-xe:21-slim
+container_name: oracle
+ports:
+- "1521:1521"
+environment:
+ORACLE_PASSWORD: admin
+ORACLE_ALLOW_REMOTE: true
+volumes:
+- oracle-data:/opt/oracle/oradata
+healthcheck:
+test: ["CMD", "sqlplus", "-L", "system/admin@//localhost:1521/XE", "exit"]
+interval: 30s
+timeout: 10s
+retries: 5
 
-Infraestrutura como Serviço (IaaS) – provisionamento de VM no Azure
+pedix-api:
+build: .
+container_name: pedix-api
+ports:
+- "8080:8080"
+depends_on:
+- oracle
+environment:
+SPRING_DATASOURCE_URL: jdbc:oracle:thin:@oracle:1521/XE
+SPRING_DATASOURCE_USERNAME: system
+SPRING_DATASOURCE_PASSWORD: admin
+networks:
+- pedix-network
 
-Dockerfile multi-stage build – otimização de imagem
+atendimentos-api:
+image: duda/atendimentos-api:latest
+container_name: atendimentos-api
+ports:
+- "8081:8080"
+depends_on:
+- oracle
+environment:
+ConnectionStrings__DefaultConnection: "User Id=system;Password=admin;Data Source=oracle:1521/XE;"
+networks:
+- pedix-network
 
-Docker Compose – orquestração de múltiplos serviços
+volumes:
+oracle-data:
 
-Imagens slim/alpine – redução de tamanho e tempo de build
+networks:
+pedix-network:
+driver: bridge
+```
 
-Execução em background (-d) – serviços rodando em modo daemon
+## 🚀 Como Executar na VM (Azure)
 
-Isolamento de usuário não root nos containers
+1. Conecte-se à sua VM via SSH
+ > ssh azureuser@<ip-da-sua-vm>
 
 
-> O projeto foi implantado com sucesso em ambiente cloud, utilizando Docker Compose para integrar as APIs Java e .NET com o banco Oracle XE.
-> A execução foi validada por meio do Swagger, confirmando a comunicação entre os serviços e o funcionamento completo da stack.
+2. Clone os repositórios
+   * git clone https://github.com/alanerochaa/pedix-api.git
+   * git clone https://github.com/DudaAraujo14/atendimentos-api.git
 
----
 
-## 👥 Integrantes do Grupo
+3. Execute o Docker Compose
+> sudo docker-compose up -d --build
 
-| Nome | RM | Função |
-|-------|-----|--------|
-| **Maria Eduarda Araujo Penas** | RM560944 | Desenvolvedora Backend |
-| **Alane Rocha da Sila** | RM561052 | Desenvolvedora Backend |
-| **Anna Beatriz de Araujo Bonfim** | RM559561 | Desenvolvedora Front/Infra |
+4. Verifique se os containers estão ativos 
+> sudo docker ps
 
----
+## 💻 Acesse os serviços:
+
+* Swagger Pedix: http://<ip-da-vm>:8080/swagger-ui/index.html
+
+* Swagger Atendimentos: http://<ip-da-vm>:8081/swagger/index.html
+
+* Banco Oracle: porta 1521 (acesso remoto opcional)
+
+## 🧾 Evidências (no PDF da entrega)
+
+O PDF anexo à entrega contém as evidências obrigatórias de implantação:
+
+🐋 docker ps mostrando todos os containers em execução
+
+🌐 Swaggers acessíveis via IP público
+
+🗄️ Banco Oracle XE inicializado corretamente
+
+💣 Exclusão do grupo de recursos na Azure (etapa final)
+
+
+## 👩‍💻 Integrantes e Responsabilidades
+
+| **Nome**                          | **RM**   | **Função**                  | **GitHub**                                       |
+| --------------------------------- | -------- | --------------------------- | ------------------------------------------------ |
+| **Alane Rocha da Silva**          | RM561052 | Desenvolvedora **Backend ** | [@alanerochaa](https://github.com/alanerochaa)   |
+| **Anna Beatriz de Araujo Bonfim** | RM559561 | Desenvolvedora **Front / Infra** | [@annabonfim](https://github.com/annabonfim)     |
+| **Maria Eduarda Araujo Penas**    | RM560944 | Desenvolvedora **Backend ** | [@DudaAraujo14](https://github.com/DudaAraujo14) |
+
+
+
+<p align="center">
+  Desenvolvido com 💜 pela equipe <strong>CodeGirls</strong> — FIAP 2025.
+</p>
