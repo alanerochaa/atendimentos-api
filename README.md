@@ -311,15 +311,20 @@ A infraestrutura foi criada em uma **máquina virtual Linux (Ubuntu 22.04 LTS)**
 
 ---
 
-### 🧩 Estrutura de Containers
+## 🐳 Orquestração com Docker Compose
+
+O arquivo `docker-compose.yml` define a orquestração de três containers — **Oracle XE**, **API Pedix (Java)** e **API Atendimentos (.NET)** — conectados por uma rede Docker interna chamada **`pedix-network`**.  
+Ele garante que o **banco de dados suba primeiro**, e só depois as **APIs sejam inicializadas**, já configuradas com variáveis de ambiente apontando para o Oracle.
+
+### 📦 Estrutura da Orquestração
 
 | Serviço                | Container            | Porta Interna | Porta Externa | Imagem Base                                 |
-| ---------------------- | -------------------- | ------------- | -------------- | ------------------------------------------- |
+| ---------------------- | -------------------- | ------------- | -------------- | -------------------------------------------|
 | Banco Oracle XE        | `oracle`             | 1521          | 1521           | `gvenzl/oracle-xe:21-slim`                 |
 | API Java (Pedix)       | `pedix-api`          | 8080          | 8080           | `eclipse-temurin:21-jdk-alpine`            |
 | API .NET (Atendimentos)| `atendimentos-api`   | 8080          | 8081           | `mcr.microsoft.com/dotnet/aspnet:8.0-slim` |
 
-Todos os serviços foram orquestrados via **Docker Compose**, garantindo isolamento e comunicação entre containers por meio de uma rede bridge interna (`pedix-network`).
+Todos os containers estão conectados pela mesma rede (`pedix-network`) e utilizam volumes persistentes (`oracle-data`) para manter os dados salvos mesmo após a reinicialização.
 
 ---
 
