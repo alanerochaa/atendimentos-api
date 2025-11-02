@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "pnzZQDVHyf0=",
+  "dgSpecHash": "RIDd/xBgmco=",
   "success": true,
-  "projectFilePath": "C:\\Users\\Alan\\Desktop\\C-\\atendimentos\\src\\Atendimentos.Api\\Atendimentos.Api.csproj",
+  "projectFilePath": "C:\\Users\\Alan\\Desktop\\atendimentos-api\\atendimentos\\src\\Atendimentos.Api\\Atendimentos.Api.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\Alan\\.nuget\\packages\\humanizer.core\\2.14.1\\humanizer.core.2.14.1.nupkg.sha512",
     "C:\\Users\\Alan\\.nuget\\packages\\microsoft.aspnetcore.jsonpatch\\8.0.8\\microsoft.aspnetcore.jsonpatch.8.0.8.nupkg.sha512",

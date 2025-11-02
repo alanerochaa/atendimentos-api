@@ -14,11 +14,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\Alan\\Desktop\\C-\\atendimentos\\src\\Atendimentos.Domain\\Atendimentos.Domain.csproj",
+      "projectUniqueName": "C:\\Users\\Alan\\Desktop\\atendimentos-api\\atendimentos\\src\\Atendimentos.Domain\\Atendimentos.Domain.csproj",
       "projectName": "Atendimentos.Domain",
-      "projectPath": "C:\\Users\\Alan\\Desktop\\C-\\atendimentos\\src\\Atendimentos.Domain\\Atendimentos.Domain.csproj",
+      "projectPath": "C:\\Users\\Alan\\Desktop\\atendimentos-api\\atendimentos\\src\\Atendimentos.Domain\\Atendimentos.Domain.csproj",
       "packagesPath": "C:\\Users\\Alan\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\Alan\\Desktop\\C-\\atendimentos\\src\\Atendimentos.Domain\\obj\\",
+      "outputPath": "C:\\Users\\Alan\\Desktop\\atendimentos-api\\atendimentos\\src\\Atendimentos.Domain\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"

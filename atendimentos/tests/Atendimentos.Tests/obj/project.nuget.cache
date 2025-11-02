@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "8+pYXkKBx1M=",
+  "dgSpecHash": "8R7VhOFQZvs=",
   "success": true,
-  "projectFilePath": "C:\\Users\\Alan\\Desktop\\C-\\atendimentos\\tests\\Atendimentos.Tests\\Atendimentos.Tests.csproj",
+  "projectFilePath": "C:\\Users\\Alan\\Desktop\\atendimentos-api\\atendimentos\\tests\\Atendimentos.Tests\\Atendimentos.Tests.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\Alan\\.nuget\\packages\\coverlet.collector\\6.0.2\\coverlet.collector.6.0.2.nupkg.sha512",
     "C:\\Users\\Alan\\.nuget\\packages\\fluentassertions\\8.7.1\\fluentassertions.8.7.1.nupkg.sha512",

@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "9Zjg4Vm1+6Y=",
+  "dgSpecHash": "wxUKx6GzMvM=",
   "success": true,
-  "projectFilePath": "C:\\Users\\Alan\\Desktop\\C-\\atendimentos\\src\\Atendimentos.Domain\\Atendimentos.Domain.csproj",
+  "projectFilePath": "C:\\Users\\Alan\\Desktop\\atendimentos-api\\atendimentos\\src\\Atendimentos.Domain\\Atendimentos.Domain.csproj",
   "expectedPackageFiles": [],
   "logs": []
 }

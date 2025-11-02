@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "TgCKv8xYf/4=",
+  "dgSpecHash": "s1R8mmVatnc=",
   "success": true,
-  "projectFilePath": "C:\\Users\\Alan\\Desktop\\C-\\atendimentos\\src\\Atendimentos.Application\\Atendimentos.Application.csproj",
+  "projectFilePath": "C:\\Users\\Alan\\Desktop\\atendimentos-api\\atendimentos\\src\\Atendimentos.Application\\Atendimentos.Application.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\Alan\\.nuget\\packages\\microsoft.extensions.dependencyinjection.abstractions\\9.0.9\\microsoft.extensions.dependencyinjection.abstractions.9.0.9.nupkg.sha512",
     "C:\\Users\\Alan\\.nuget\\packages\\microsoft.extensions.logging.abstractions\\9.0.9\\microsoft.extensions.logging.abstractions.9.0.9.nupkg.sha512",
