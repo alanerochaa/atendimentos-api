@@ -1,0 +1,27 @@
+# ===============================
+# 📦 Etapa 1: Build da aplicação
+# ===============================
+FROM mcr.microsoft.com/dotnet/sdk:8.0 AS build
+WORKDIR /src
+
+# Copia todos os arquivos do projeto
+COPY . .
+
+# Restaura as dependências
+RUN dotnet restore "Atendimentos.Api/Atendimentos.Api.csproj"
+
+# Compila e publica em modo Release
+RUN dotnet publish "Atendimentos.Api/Atendimentos.Api.csproj" -c Release -o /app/publish
+
+
+# ===============================
+# 🚀 Etapa 2: Runtime (execução)
+# ===============================
+FROM mcr.microsoft.com/dotnet/aspnet:8.0
+WORKDIR /app
+
+# Copia os artefatos compilados
+COPY --from=build /app/publish .
+
+# Define o ponto de entrada
+ENTRYPOINT ["dotnet", "Atendimentos.Api.dll"]
