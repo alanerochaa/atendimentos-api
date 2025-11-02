@@ -7,7 +7,7 @@ WORKDIR /src
 # Copia todos os arquivos do projeto
 COPY . .
 
-# Restaura as dependências
+# Restaura dependências
 RUN dotnet restore "Atendimentos.Api/Atendimentos.Api.csproj"
 
 # Compila e publica em modo Release
@@ -20,8 +20,8 @@ RUN dotnet publish "Atendimentos.Api/Atendimentos.Api.csproj" -c Release -o /app
 FROM mcr.microsoft.com/dotnet/aspnet:8.0
 WORKDIR /app
 
-# Copia os artefatos compilados
+# Copia os arquivos da etapa de build
 COPY --from=build /app/publish .
 
-# Define o ponto de entrada
+# Executa a API
 ENTRYPOINT ["dotnet", "Atendimentos.Api.dll"]
