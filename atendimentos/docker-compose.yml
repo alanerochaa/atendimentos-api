@@ -45,7 +45,9 @@ services:
   # API .NET (Atendimentos)
   # ==============================
   atendimentos-api:
-    build: ./atendimentos-api/atendimentos
+    build:
+      context: ./atendimentos-api
+      dockerfile: atendimentos/Dockerfile
     container_name: atendimentos-api
     environment:
       - ConnectionStrings__DefaultConnection=User Id=fiap_user;Password=FiapApp123;Data Source=oracle:1521/XEPDB1
