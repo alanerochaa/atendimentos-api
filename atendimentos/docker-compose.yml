@@ -1,9 +1,7 @@
 version: "3.9"
 
 services:
-  # ==============================
   # Banco Oracle XE
-  # ==============================
   oracle:
     image: gvenzl/oracle-xe:21-slim
     container_name: oracle
@@ -23,11 +21,11 @@ services:
       timeout: 10s
       retries: 5
 
-  # ==============================
-  # API Java (Pedix)
-  # ==============================
+  # API Java (Pedix) — pasta existente: ./pedix-api-devops
   pedix-api:
-    build: ./pedix-api
+    build:
+      context: ./pedix-api-devops
+      dockerfile: Dockerfile   # ajuste aqui se o nome/locais forem diferentes
     container_name: pedix-api
     environment:
       - SPRING_DATASOURCE_URL=jdbc:oracle:thin:@oracle:1521/XEPDB1
@@ -41,28 +39,22 @@ services:
     networks:
       - pedix-network
 
-  # ==============================
-  # API .NET (Atendimentos)
-  # ==============================
+  # API .NET (Atendimentos) — pasta existente: ./atendimentos-api
   atendimentos-api:
     build:
       context: ./atendimentos-api
-      dockerfile: atendimentos/Dockerfile
+      dockerfile: Dockerfile   # ajuste aqui se o Dockerfile estiver em subpasta
     container_name: atendimentos-api
     environment:
       - ConnectionStrings__DefaultConnection=User Id=fiap_user;Password=FiapApp123;Data Source=oracle:1521/XEPDB1
-      - ASPNETCORE_URLS=http://0.0.0.0:8080
     ports:
-      - "8081:8080"  # Porta externa → interna
+      - "8081:8081"
     depends_on:
       oracle:
         condition: service_healthy
     networks:
       - pedix-network
 
-# ==============================
-# Rede e Volume
-# ==============================
 networks:
   pedix-network:
     driver: bridge
