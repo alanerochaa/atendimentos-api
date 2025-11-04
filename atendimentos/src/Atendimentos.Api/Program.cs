@@ -7,28 +7,36 @@ using Atendimentos.Application.Services;
 var builder = WebApplication.CreateBuilder(args);
 
 // =============================
+// Força leitura de variáveis de ambiente
+// =============================
+builder.Configuration.AddEnvironmentVariables();
+
+// =============================
+// Recupera Connection String (com fallback)
+// =============================
+var connectionString =
+    builder.Configuration.GetConnectionString("DefaultConnection") ??
+    builder.Configuration["ConnectionStrings__DefaultConnection"] ??
+    throw new InvalidOperationException(" A ConnectionString 'DefaultConnection' não foi encontrada nas configurações.");
+
+// =============================
 // Configuração do banco de dados Oracle
 // =============================
 builder.Services.AddDbContext<AtendimentosDbContext>(options =>
-    options.UseOracle(builder.Configuration.GetConnectionString("DefaultConnection"))); // 🔧 nome alinhado com docker-compose.yml
+    options.UseOracle(connectionString));
 
 // =============================
 // Registro de Repositórios e Serviços
 // =============================
-
-// MESA
 builder.Services.AddScoped<IMesaRepository, MesaRepository>();
 builder.Services.AddScoped<IMesaService, MesaService>();
 
-// GARÇOM
 builder.Services.AddScoped<IGarcomRepository, GarcomRepository>();
 builder.Services.AddScoped<IGarcomService, GarcomService>();
 
-// COMANDA
 builder.Services.AddScoped<IComandaRepository, ComandaRepository>();
 builder.Services.AddScoped<IComandaService, ComandaService>();
 
-// CLIENTE
 builder.Services.AddScoped<IClienteRepository, ClienteRepository>();
 builder.Services.AddScoped<IClienteService, ClienteService>();
 
@@ -42,7 +50,7 @@ builder.Services.AddSwaggerGen();
 var app = builder.Build();
 
 // =============================
-// Modo desenvolvedor (erros detalhados)
+// Ambiente de desenvolvimento
 // =============================
 if (app.Environment.IsDevelopment())
 {
@@ -50,16 +58,16 @@ if (app.Environment.IsDevelopment())
 }
 
 // =============================
-// Aplica migrations automaticamente (se usar EF Core)
+// Migrations automáticas
 // =============================
 using (var scope = app.Services.CreateScope())
 {
     var db = scope.ServiceProvider.GetRequiredService<AtendimentosDbContext>();
-    db.Database.Migrate();
+    db.Database.EnsureCreated();
 }
 
 // =============================
-// Configuração do Swagger (habilitado em qualquer ambiente)
+// Swagger e Middlewares
 // =============================
 app.UseSwagger();
 app.UseSwaggerUI(c =>
@@ -68,14 +76,7 @@ app.UseSwaggerUI(c =>
     c.RoutePrefix = "swagger";
 });
 
-// =============================
-// Middlewares padrão
-// =============================
 app.UseHttpsRedirection();
 app.UseAuthorization();
 app.MapControllers();
-
-// =============================
-// Execução da aplicação
-// =============================
 app.Run();
