@@ -10,7 +10,7 @@ var builder = WebApplication.CreateBuilder(args);
 // Configuração do banco de dados Oracle
 // =============================
 builder.Services.AddDbContext<AtendimentosDbContext>(options =>
-    options.UseOracle(builder.Configuration.GetConnectionString("Default")));
+    options.UseOracle(builder.Configuration.GetConnectionString("DefaultConnection"))); // 🔧 nome alinhado com docker-compose.yml
 
 // =============================
 // Registro de Repositórios e Serviços
@@ -40,6 +40,23 @@ builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 
 var app = builder.Build();
+
+// =============================
+// Modo desenvolvedor (erros detalhados)
+// =============================
+if (app.Environment.IsDevelopment())
+{
+    app.UseDeveloperExceptionPage();
+}
+
+// =============================
+// Aplica migrations automaticamente (se usar EF Core)
+// =============================
+using (var scope = app.Services.CreateScope())
+{
+    var db = scope.ServiceProvider.GetRequiredService<AtendimentosDbContext>();
+    db.Database.Migrate();
+}
 
 // =============================
 // Configuração do Swagger (habilitado em qualquer ambiente)
