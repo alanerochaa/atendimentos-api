@@ -7,26 +7,29 @@ using Atendimentos.Application.Services;
 var builder = WebApplication.CreateBuilder(args);
 
 // =============================
-// Força leitura de variáveis de ambiente
+// Leitura de variáveis de ambiente
 // =============================
 builder.Configuration.AddEnvironmentVariables();
 
 // =============================
-// Recupera Connection String (com fallback)
+// Connection String (com fallback + validação)
 // =============================
 var connectionString =
     builder.Configuration.GetConnectionString("DefaultConnection") ??
     builder.Configuration["ConnectionStrings__DefaultConnection"] ??
-    throw new InvalidOperationException(" A ConnectionString 'DefaultConnection' não foi encontrada nas configurações.");
+    throw new InvalidOperationException("A ConnectionString 'DefaultConnection' não foi encontrada nas configurações.");
+
+if (string.IsNullOrWhiteSpace(connectionString))
+    throw new InvalidOperationException("A ConnectionString 'DefaultConnection' está vazia.");
 
 // =============================
-// Configuração do banco de dados Oracle
+// EF Core + Oracle
 // =============================
 builder.Services.AddDbContext<AtendimentosDbContext>(options =>
     options.UseOracle(connectionString));
 
 // =============================
-// Registro de Repositórios e Serviços
+// DI – Repositórios & Serviços
 // =============================
 builder.Services.AddScoped<IMesaRepository, MesaRepository>();
 builder.Services.AddScoped<IMesaService, MesaService>();
@@ -41,7 +44,7 @@ builder.Services.AddScoped<IClienteRepository, ClienteRepository>();
 builder.Services.AddScoped<IClienteService, ClienteService>();
 
 // =============================
-// Configurações básicas da API
+// API Base
 // =============================
 builder.Services.AddControllers();
 builder.Services.AddEndpointsApiExplorer();
@@ -49,25 +52,23 @@ builder.Services.AddSwaggerGen();
 
 var app = builder.Build();
 
-// =============================
-// Ambiente de desenvolvimento
-// =============================
 if (app.Environment.IsDevelopment())
 {
     app.UseDeveloperExceptionPage();
 }
 
 // =============================
-// Migrations automáticas
+// Bootstrap do schema
 // =============================
 using (var scope = app.Services.CreateScope())
 {
     var db = scope.ServiceProvider.GetRequiredService<AtendimentosDbContext>();
-    db.Database.EnsureCreated();
+    var pending = db.Database.GetPendingMigrations();
+    if (pending.Any()) db.Database.Migrate(); else db.Database.EnsureCreated();
 }
 
 // =============================
-// Swagger e Middlewares
+// Swagger & Middlewares
 // =============================
 app.UseSwagger();
 app.UseSwaggerUI(c =>
@@ -79,4 +80,5 @@ app.UseSwaggerUI(c =>
 app.UseHttpsRedirection();
 app.UseAuthorization();
 app.MapControllers();
+
 app.Run();
